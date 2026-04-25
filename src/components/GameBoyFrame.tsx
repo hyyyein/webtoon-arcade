@@ -283,6 +283,17 @@ export function GameBoyFrame({ children }: Props) {
         </div>
 
       </div>
+
+      {/* 면책 문구 — 프레임 하단 */}
+      <p
+        className="text-center mt-2 px-4 leading-relaxed"
+        style={{ fontSize: '7px', color: 'rgba(255,255,255,0.2)' }}
+      >
+        본 사이트는 비공식 포트폴리오/케이스 스터디입니다.<br />
+        레진코믹스 로고 및 작품 이미지는 © 레진엔터테인먼트의 저작물이며,<br />
+        채용 지원 목적으로만 사용됩니다.
+      </p>
+
     </div>
   );
 }

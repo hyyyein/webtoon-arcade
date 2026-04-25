@@ -32,12 +32,6 @@ export function ResultScreen({ result, onRestart }: Props) {
       >
         RETRY
       </button>
-
-      <p className="text-[8px] text-center text-white/30 mt-3 px-2 leading-relaxed">
-        본 사이트는 비공식 포트폴리오/케이스 스터디입니다.<br />
-        레진코믹스 로고 및 작품 이미지는 © 레진엔터테인먼트의 저작물이며,<br />
-        채용 지원 목적으로만 사용됩니다.
-      </p>
     </div>
   );
 }

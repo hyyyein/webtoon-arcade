@@ -1,6 +1,5 @@
 import type { RecommendResult } from '../types';
 import { WebtoonCard } from '../components/WebtoonCard';
-import { ShareButtons } from '../components/ShareButtons';
 
 type Props = {
   result: RecommendResult;
@@ -25,8 +24,6 @@ export function ResultScreen({ result, onRestart }: Props) {
           <WebtoonCard key={w.id} webtoon={w} />
         ))}
       </div>
-
-      <ShareButtons resultName={type.name} />
 
       <button
         type="button"

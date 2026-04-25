@@ -10,6 +10,13 @@
   --color-lcd-green: #9BBC0F;
   --font-pixel: 'Galmuri11', monospace;
   --font-sans: 'Pretendard', sans-serif;
+
+  /* GBA SP 하드웨어 색상 */
+  --color-gba-body: #F4A0B5;
+  --color-gba-hinge: #C8809A;
+  --color-gba-bezel: #1A1A1A;
+  --color-gba-button: #3D3D3D;
+  --color-gba-shadow: #D4849A;
 }
 
 html, body, #root {

@@ -1,7 +1,6 @@
-@import "tailwindcss";
-
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css');
 @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Galmuri11.css');
+@import "tailwindcss";
 
 @theme {
   --color-pink-primary: #FF6BCB;
@@ -29,4 +28,17 @@ html, body, #root {
     0 4px 0 0 currentColor,
     -4px 0 0 0 currentColor,
     4px 0 0 0 currentColor;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-pixel-mint);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

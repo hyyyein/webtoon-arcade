@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css');
+@import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Galmuri11.css');
+
+@theme {
+  --color-pink-primary: #FF6BCB;
+  --color-magenta: #D946EF;
+  --color-bg-black: #0A0A0A;
+  --color-pixel-mint: #7FFFD4;
+  --color-lcd-green: #9BBC0F;
+  --font-pixel: 'Galmuri11', monospace;
+  --font-sans: 'Pretendard', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-bg-black);
+  color: white;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 픽셀 보더 유틸리티 */
+.pixel-border {
+  box-shadow:
+    0 -4px 0 0 currentColor,
+    0 4px 0 0 currentColor,
+    -4px 0 0 0 currentColor,
+    4px 0 0 0 currentColor;
+}

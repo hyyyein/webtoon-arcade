@@ -9,14 +9,14 @@ export function GameBoyFrame({ children }: Props) {
     <div className="flex items-center justify-center min-h-screen p-2 bg-bg-black">
       <div
         className="w-full max-w-[360px] flex flex-col"
-        style={{ height: 'min(96dvh, 700px)' }}
+        style={{ height: 'min(95dvh, 700px)' }}
       >
 
         {/* ── TOP SECTION: 스크린 하우징 ── */}
         <div
           className="flex flex-col shadow-2xl"
           style={{
-            flex: '0 0 44%',
+            flex: '0 0 66%',
             background: '#1C1C1C',
             borderRadius: '18px 18px 8px 8px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.06)',
@@ -123,11 +123,11 @@ export function GameBoyFrame({ children }: Props) {
             boxShadow: '0 8px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.3)',
           }}
         >
-          {/* 메인 컨트롤 행: D-pad + 중앙 + A/B */}
-          <div className="flex items-center justify-between px-6 pt-5 pb-1">
+          {/* 메인 컨트롤 행: D-pad + B/A */}
+          <div className="flex items-center justify-between px-6 pt-3 pb-1">
 
             {/* D-pad */}
-            <div className="relative" style={{ width: 64, height: 64 }}>
+            <div className="relative" style={{ width: 56, height: 56 }}>
               {/* 가로 바 */}
               <div
                 className="absolute top-1/2 left-0 -translate-y-1/2 w-full"
@@ -175,90 +175,33 @@ export function GameBoyFrame({ children }: Props) {
               ))}
             </div>
 
-            {/* 중앙 원형 버튼 */}
-            <div
-              style={{
-                width: 22,
-                height: 22,
-                background: 'radial-gradient(circle at 40% 35%, #555, #2A2A2A)',
-                borderRadius: '50%',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)',
-              }}
-            />
-
-            {/* B / A 버튼 */}
-            <div className="relative" style={{ width: 84, height: 64 }}>
-              {/* B 버튼 (왼쪽 아래) */}
-              <button
-                type="button"
-                tabIndex={-1}
-                aria-hidden
-                className="absolute flex items-center justify-center font-pixel cursor-default select-none"
-                style={{
-                  width: 40,
-                  height: 40,
-                  left: 0,
-                  top: '50%',
-                  transform: 'translateY(-30%)',
-                  background: 'radial-gradient(circle at 40% 35%, #555, #2E2E2E)',
-                  borderRadius: '50%',
-                  color: 'rgba(255,255,255,0.55)',
-                  fontSize: '11px',
-                  boxShadow: '0 4px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
-                }}
-              >
-                B
-              </button>
-              {/* A 버튼 (오른쪽 위) */}
-              <button
-                type="button"
-                tabIndex={-1}
-                aria-hidden
-                className="absolute flex items-center justify-center font-pixel cursor-default select-none"
-                style={{
-                  width: 40,
-                  height: 40,
-                  right: 0,
-                  top: 0,
-                  background: 'radial-gradient(circle at 40% 35%, #555, #2E2E2E)',
-                  borderRadius: '50%',
-                  color: 'rgba(255,255,255,0.55)',
-                  fontSize: '11px',
-                  boxShadow: '0 4px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
-                }}
-              >
-                A
-              </button>
-            </div>
-          </div>
-
-          {/* 스피커 그릴 (5×3 도트) */}
-          <div className="flex justify-center my-1">
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(5, 6px)',
-                gridTemplateRows: 'repeat(3, 6px)',
-                gap: '4px',
-              }}
-            >
-              {Array.from({ length: 15 }).map((_, i) => (
-                <div
-                  key={i}
+            {/* B / A 버튼 — 나란히 배치 */}
+            <div className="flex items-center gap-2">
+              {(['B', 'A'] as const).map(label => (
+                <button
+                  key={label}
+                  type="button"
+                  tabIndex={-1}
+                  aria-hidden
+                  className="flex items-center justify-center font-pixel cursor-default select-none"
                   style={{
-                    width: 6,
-                    height: 6,
+                    width: 36,
+                    height: 36,
+                    background: 'radial-gradient(circle at 40% 35%, #555, #2E2E2E)',
                     borderRadius: '50%',
-                    background: 'rgba(0,0,0,0.22)',
-                    boxShadow: 'inset 0 1px 1px rgba(0,0,0,0.3)',
+                    color: 'rgba(255,255,255,0.55)',
+                    fontSize: '11px',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
                   }}
-                />
+                >
+                  {label}
+                </button>
               ))}
             </div>
           </div>
 
           {/* SELECT / START 버튼 */}
-          <div className="flex justify-center gap-8 mt-1 mb-4">
+          <div className="flex justify-center gap-6 mt-1">
             {(['SELECT', 'START'] as const).map(label => (
               <div key={label} className="flex flex-col items-center gap-1">
                 <div
@@ -280,19 +223,44 @@ export function GameBoyFrame({ children }: Props) {
               </div>
             ))}
           </div>
+
+          {/* 스피커 그릴 (4×3 도트) */}
+          <div className="flex justify-center mt-1.5">
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(4, 6px)',
+                gridTemplateRows: 'repeat(3, 6px)',
+                gap: '3px',
+              }}
+            >
+              {Array.from({ length: 12 }).map((_, i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: '50%',
+                    background: 'rgba(0,0,0,0.22)',
+                    boxShadow: 'inset 0 1px 1px rgba(0,0,0,0.3)',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* 면책 문구 — 컨트롤 하단 */}
+          <p
+            className="text-center px-4 pb-3 mt-auto leading-relaxed"
+            style={{ fontSize: '6px', color: 'rgba(255,255,255,0.5)' }}
+          >
+            본 사이트는 비공식 포트폴리오/케이스 스터디입니다.<br />
+            레진코믹스 로고 및 작품 이미지는 © 레진엔터테인먼트의 저작물이며,<br />
+            채용 지원 목적으로만 사용됩니다.
+          </p>
         </div>
 
       </div>
-
-      {/* 면책 문구 — 프레임 하단 */}
-      <p
-        className="text-center mt-2 px-4 leading-relaxed"
-        style={{ fontSize: '7px', color: 'rgba(255,255,255,0.2)' }}
-      >
-        본 사이트는 비공식 포트폴리오/케이스 스터디입니다.<br />
-        레진코믹스 로고 및 작품 이미지는 © 레진엔터테인먼트의 저작물이며,<br />
-        채용 지원 목적으로만 사용됩니다.
-      </p>
 
     </div>
   );

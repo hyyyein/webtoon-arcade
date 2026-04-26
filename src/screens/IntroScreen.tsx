@@ -27,18 +27,7 @@ export function IntroScreen({ onStart }: Props) {
           <div className="font-pixel text-[7px] text-white tabular-nums">00000</div>
         </div>
         <div className="text-center">
-          <div
-            className="font-pixel text-pink-primary leading-none"
-            style={{ fontSize: '9px', textShadow: '0 0 8px rgba(255,107,203,0.7)' }}
-          >
-            WEBTOON
-          </div>
-          <div
-            className="font-pixel text-pink-primary leading-none"
-            style={{ fontSize: '9px', textShadow: '0 0 8px rgba(255,107,203,0.7)' }}
-          >
-            ARCADE
-          </div>
+          <img src="/lezhin-logo.png" alt="레진코믹스" className="w-7 h-7 rounded-sm" />
         </div>
         <div className="text-center min-w-[48px]">
           <div className="font-pixel text-[7px] text-pixel-mint">LEZHIN</div>
@@ -88,7 +77,7 @@ export function IntroScreen({ onStart }: Props) {
 
         {/* 채팅 말풍선 */}
         <div className="px-2 mt-2 flex-shrink-0">
-          <ChatBubble text="안녕! 너에게 딱 맞는 레진 웹툰 4편을 찾아줄게 ✨" />
+          <ChatBubble text="너에게 딱 맞는 레진 웹툰 2편을 찾아줄게" />
           <ChatBubble text="어떻게 찾아주는 건데?" variant="user" />
           <ChatBubble text="8개만 답해주면 돼! 약 1분 걸려" />
         </div>

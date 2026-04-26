@@ -54,7 +54,7 @@ export function recommend(answers: Answers, webtoons: Webtoon[]): RecommendResul
   // 3) primaryTags 매칭 점수 계산 + 정렬 (인기도 우선, 매칭 점수 보조)
   candidates = candidates
     .map(w => ({ webtoon: w, match: primaryMatchCount(w, type) }))
-    .filter(({ match }) => match > 0 || candidates.length < 4)
+    .filter(({ match }) => match > 0 || candidates.length < 2)
     .sort((a, b) => {
       if (b.webtoon.popularity !== a.webtoon.popularity)
         return b.webtoon.popularity - a.webtoon.popularity;
@@ -69,7 +69,7 @@ export function recommend(answers: Answers, webtoons: Webtoon[]): RecommendResul
     if (seenAuthors.has(w.author)) continue;
     seenAuthors.add(w.author);
     final.push(w);
-    if (final.length === 4) break;
+    if (final.length === 2) break;
   }
 
   return { type, webtoons: final };

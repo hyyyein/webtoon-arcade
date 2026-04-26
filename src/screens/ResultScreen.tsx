@@ -16,7 +16,11 @@ export function ResultScreen({ result, onRestart }: Props) {
       <div className="text-center my-2 px-2">
         <p className="text-3xl">{type.emoji}</p>
         <p className="font-pixel text-white text-base">{type.name}</p>
-        <p className="text-[10px] text-pixel-mint mt-1 leading-relaxed">{type.description}</p>
+        {type.description.split('. ').filter(Boolean).map((line, i) => (
+          <p key={i} className="text-[10px] text-pixel-mint mt-1 leading-relaxed">
+            {line.endsWith('.') ? line : line + '.'}
+          </p>
+        ))}
       </div>
 
       <div className="grid grid-cols-2 gap-2 my-2">
